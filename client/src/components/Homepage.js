@@ -22,7 +22,7 @@ export default class Homepage extends Component {
   signup = async (data) => {
     console.log(`SIGNUP IN`);
     await axios
-      .post("http://localhost:4000/api/v1/signup", data)
+      .post("https://manual-auth.herokuapp.com/api/v1/signup", data)
       .then((data) => {
         if (data.data.success) {
           this.setState({ currentPage: <Login login={this.login}></Login> });
@@ -40,7 +40,7 @@ export default class Homepage extends Component {
   login = async (data) => {
     console.log(`LOGIN IN`);
     await axios
-      .post("http://localhost:4000/api/v1/login", data)
+      .post("https://manual-auth.herokuapp.com/api/v1/login", data)
       .then((data) => {
         console.log(data);
         if (data.data.token) {

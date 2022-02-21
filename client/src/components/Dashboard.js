@@ -17,7 +17,7 @@ export default class Dashboard extends Component {
   dashboard = async () => {
     console.log(`DASHBOARD IN`);
     axios.defaults.headers.common["token"] = this.props.token;
-    await axios.get("http://localhost:4000/dashboard/user").then((data) => {
+    await axios.get("https://manual-auth.herokuapp.com/dashboard/user").then((data) => {
       this.setState({
         user: data.data.user,
         name: data.data.user.name,

@@ -25,7 +25,7 @@ export default class ForgotPass extends Component {
     this.setState({ email: data.email });
     console.log(`GET OTP REQUEST SENT`);
     await axios
-      .post("http://localhost:4000/api/v1/getOTP", data)
+      .post("https://manual-auth.herokuapp.com/api/v1/getOTP", data)
       .then((data) => {
         if (data.data.success) {
           this.setState({
@@ -53,7 +53,7 @@ export default class ForgotPass extends Component {
     console.log(`CHECK REQUEST SENT`);
     console.log(data);
     await axios
-      .post("http://localhost:4000/api/v1/forgetPassword", data)
+      .post("https://manual-auth.herokuapp.com/api/v1/forgetPassword", data)
       .then((data) => {
         if (data.data.success) {
           this.setState({
@@ -80,7 +80,7 @@ export default class ForgotPass extends Component {
     console.log(this.state.token);
     axios.defaults.headers.common["token"] = this.state.token;
     await axios
-      .post("http://localhost:4000/api/v1/resetPassword", data)
+      .post("https://manual-auth.herokuapp.com/api/v1/resetPassword", data)
       .then((data) => {
         if (data.data.success) {
           this.setState({
